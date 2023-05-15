@@ -14,26 +14,8 @@ class RecipeCard extends HTMLElement {
     this.styleEl = document.createElement('style');
 
     // A4. Insert all of the styles from cardTemplate.html into the <style> element
-    this.styleEl.textContent = `<article>
-    <img src="https://link-to-article.com/recipe-thumbnail.jpg"
-      alt="Recipe Title">
-    <p class="title">
-      <a href="https://link-to-article.com">Title</a>
-    </p>
-    <p class="organization">The Chef's Organization</p>
-    <div class="rating">
-      <span>5</span>
-      <img src="/assets/images/icons/5-star.svg" alt="5 stars">
-      <span>(500)</span>
-    </div>
-    <time>50 min</time>
-    <p class="ingredients">
-      Comma, Separated, List, of, Ingredients
-    </p>
-  </article>
-  
-  <!-- Styles -->
-  <style>
+    this.styleEl.textContent = `
+    
     * {
       font-family: sans-serif;
       margin: 0;
@@ -109,7 +91,7 @@ class RecipeCard extends HTMLElement {
       color: #70757A;
       font-size: 12px;
     }
-  </style>` // Here you need to insert styles from the cardTemplate.html file.
+  ` // Here you need to insert styles from the cardTemplate.html file.
 
     // A5. Append the <style> and <article> elements to the Shadow DOM
     this.shadowRoot.append(this.styleEl, this.article);
@@ -119,7 +101,7 @@ class RecipeCard extends HTMLElement {
     if (!data) return;
 
     // A6. Select the <article>
-    let article = this.shadowRoot.querySelector('article');
+    const article = this.shadowRoot.querySelector('article');
 
     // A7. Set the contents of the <article>
     article.innerHTML = `
